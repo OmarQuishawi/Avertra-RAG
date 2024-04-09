@@ -4,6 +4,12 @@ that uses the RAG system to get answers from a given query."""
 import streamlit as st
 from utility_RAG import send_query_get_response
 
+
+headers = {
+    "authorization" : st.secrets["OPENAI_API_KEY"],
+    "content-type" : "application/json"
+}
+
 st.title("Utility RAG")
 st.write("This is a POC that uses the RAG system to get answers from a given query.")
 
