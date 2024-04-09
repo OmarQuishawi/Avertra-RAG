@@ -15,11 +15,16 @@ import os
 import openai
 import uvicorn
 from fastapi import FastAPI
+from dotenv import load_dotenv
 import nest_asyncio
 
 nest_asyncio.apply()
 
 pd.set_option("display.max_colwidth", None)
+
+def configure():
+    load_dotenv()
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 app = FastAPI()
@@ -93,4 +98,5 @@ def send_query_get_response(query_str):
     return response.response
 
 if __name__ == "__main__":
+    configure()
     uvicorn.run(app, host="127.0.0.1", port=8000)
