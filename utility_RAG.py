@@ -99,4 +99,5 @@ def send_query_get_response(query_str):
 
 if __name__ == "__main__":
     configure()
+    openai.api_key = os.getenv("OPENAI_API_KEY")
     uvicorn.run(app, host="127.0.0.1", port=8000)
