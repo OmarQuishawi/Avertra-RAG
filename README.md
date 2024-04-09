@@ -4,7 +4,7 @@ In this repo , I created a simple RAG System that is able to answer questions ab
 
 ## Demo
 
-To use the demo, you can click Here : ()
+To use the Demo, you can click [Here](https://avertrarag.streamlit.app/).
 
 ## AI solution architecture
 
