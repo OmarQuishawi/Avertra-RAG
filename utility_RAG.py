@@ -22,6 +22,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 Settings.llm = OpenAI(temperature=0, model="gpt-3.5-turbo")
 Settings.chunk_size = 512
+Settings.max_tokens = 256
 
 # load documents
 PERSIST_DIR = "./storage"
