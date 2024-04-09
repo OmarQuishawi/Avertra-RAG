@@ -14,7 +14,7 @@ In RAG, your data is loaded and prepared for queries or "indexed". User queries 
 
 Even if what you're building is a chatbot or an agent, you'll want to know RAG techniques for getting data into your application.
 
-![alt text](Images\general_rag_system.png)
+![alt text](general_rag_system.png)
 
 There are five key stages within RAG, which in turn will be a part of any larger application you build. These are:
 
@@ -46,16 +46,16 @@ Here are some examples of questions that the RAG system can answer:
 
 * **What does EDF stand for?**
 
-![alt text](Images\Q1.png)
+![alt text](Q1.png)
 
 * **What is the percentage of people that have access to good source of water?**
   
-![alt text](Images\Q2.png)
+![alt text](Q2.png)
 
 * **What does public utility company mean?**
 
-![alt text](Images\Q3.png)
+![alt text](Q3.png)
 
 * **who is Joe Biden?**
 
-![alt text](Images\Q4.png)
+![alt text](Q4.png)
