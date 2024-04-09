@@ -13,12 +13,16 @@ from llama_index.core import QueryBundle
 import pandas as pd
 import os
 import openai
+import uvicorn
+from fastapi import FastAPI
 import nest_asyncio
 
 nest_asyncio.apply()
 
 pd.set_option("display.max_colwidth", None)
 openai.api_key = os.getenv("OPENAI_API_KEY")
+
+app = FastAPI()
 
 Settings.llm = OpenAI(temperature=0, model="gpt-3.5-turbo")
 Settings.chunk_size = 512
@@ -81,8 +85,12 @@ query_engine = index.as_chat_engine(
     response_mode="tree_summarize",
 )
 
+@app.get("/")
 def send_query_get_response(query_str):
     response = query_engine.query(query_str)
     if response.response == "Empty Response":
         response.response = "I'm sorry, I'm only a Large language model that answers questions about utilities ,and I don't have an answer for your question."
     return response.response
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
