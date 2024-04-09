@@ -8,7 +8,8 @@ st.title("Utility RAG")
 st.write("This is a POC that uses the RAG system to get answers from a given query.")
 
 query_str = st.text_input("Enter your query here:")
-if st.button("Get Response"):
+
+if st.button("Get Response") or query_str:
     response = send_query_get_response(query_str)
     st.write(response)
 
