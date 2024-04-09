@@ -25,7 +25,8 @@ pd.set_option("display.max_colwidth", None)
 def configure():
     load_dotenv()
     openai.api_key = os.getenv("OPENAI_API_KEY")
-
+    
+configure()
 # openai.api_key = os.getenv("OPENAI_API_KEY")
 
 app = FastAPI()
@@ -99,5 +100,4 @@ def send_query_get_response(query_str):
     return response.response
 
 if __name__ == "__main__":
-    configure()
     uvicorn.run(app, host="127.0.0.1", port=8000)
