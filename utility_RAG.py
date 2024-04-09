@@ -6,6 +6,7 @@ from llama_index.core import (
 )
 from llama_index.core.postprocessor import LLMRerank
 from llama_index.llms.openai import OpenAI
+from llama_index.embeddings.openai import OpenAIEmbedding
 from IPython.display import display , HTML
 from llama_index.core import Settings
 from llama_index.core.retrievers import VectorIndexRetriever
@@ -24,14 +25,14 @@ pd.set_option("display.max_colwidth", None)
 
 def configure():
     load_dotenv()
-    openai.api_key = os.getenv("OPENAI_API_KEY")
-    
+
 configure()
-# openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 app = FastAPI()
 
 Settings.llm = OpenAI(temperature=0, model="gpt-3.5-turbo")
+Settings.embed_model = OpenAIEmbedding()
 Settings.chunk_size = 512
 Settings.max_tokens = 256
 
@@ -39,7 +40,7 @@ Settings.max_tokens = 256
 PERSIST_DIR = "./storage"
 if not os.path.exists(PERSIST_DIR):
     documents = SimpleDirectoryReader("data").load_data()
-    index = VectorStoreIndex.from_documents(documents)
+    index = VectorStoreIndex.from_documents(documents,embed_model=Settings.embed_model)
     index.storage_context.persist(persist_dir=PERSIST_DIR)
 else:
     storage_context = StorageContext.from_defaults(persist_dir=PERSIST_DIR)
