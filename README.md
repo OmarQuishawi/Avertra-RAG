@@ -18,7 +18,7 @@ Even if what you're building is a chatbot or an agent, you'll want to know RAG t
 
 There are five key stages within RAG, which in turn will be a part of any larger application you build. These are:
 
-* **Loading**: this refers to getting your data from where it lives -- whether it's text files, PDFs, another website, a database, or an API -- into your pipeline. LlamaHub provides hundreds of connectors to choose from.
+* **Loading**: this refers to getting your data from where it lives -- whether it's text files, PDFs, another website, a database, or an API -- into your pipeline.
 
 * **Indexing**: this means creating a data structure that allows for querying the data. For LLMs this nearly always means creating vector embeddings, numerical representations of the meaning of your data, as well as numerous other metadata strategies to make it easy to accurately find contextually relevant data.
 
