@@ -30,7 +30,7 @@ There are five key stages within RAG, which in turn will be a part of any larger
 
 ### Reranking
 
-**Reranking**, in the context of Large Language Models (LLMs) like the one used in llamaindex, involves adjusting the order of nodes based on their relevance to a query1. Here’s a brief overview:
+**Reranking**, in the context of Large Language Models (LLMs) like the one used in llamaindex, involves adjusting the order of nodes based on their relevance to a query. Here’s a brief overview:
 
 * **Relevance Scoring**: Nodes are initially ranked based on a relevance score, which determines how closely they match the user’s query.
   
